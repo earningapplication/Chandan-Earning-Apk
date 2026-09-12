@@ -1,0 +1,351 @@
+<!doctype html>
+<html><head><meta charset='utf-8'><title>Preview</title><style>body{font-family:system-ui;padding:16px}
+iframe, img{max-width:100%}</style></head><body><!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download App - Exclusive</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           CSS: Unique Dark Neon App Download Page
+           ========================================= */
+        :root {
+            --bg-color: #05060a;
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --accent-cyan: #00f2fe;
+            --accent-purple: #4facfe;
+            --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* बैकग्राउंड में नियॉन ग्लो */
+        .bg-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+            animation: floatGlow 8s infinite alternate ease-in-out;
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            right: -100px;
+            z-index: -1;
+            animation: floatGlow 10s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* मुख्य कंटेनर */
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 40px 25px;
+            text-align: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        /* ऊपर वाला नियॉन बॉर्डर */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+            box-shadow: 0 0 15px var(--accent-cyan);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ऐप आइकॉन (बिना इमेज, सिर्फ कोड से बना हुआ) */
+        .app-icon-wrapper {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #10141f, #1a2035);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 28px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            animation: floatIcon 3s ease-in-out infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .app-icon-wrapper i {
+            font-size: 55px;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 15px var(--accent-cyan);
+        }
+
+        /* ऐप का नाम */
+        .app-title {
+            font-size: 28px;
+            font-weight: 900;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .app-title i {
+            font-size: 20px;
+            color: #00f2fe;
+            -webkit-text-fill-color: initial;
+        }
+
+        .app-subtitle {
+            font-size: 14px;
+            color: var(--text-sub);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        /* रेटिंग सेक्शन */
+        .rating-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 15px;
+            border: 1px solid var(--card-border);
+        }
+
+        .stars {
+            color: #ffb400;
+            font-size: 14px;
+        }
+
+        .rating-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* फीचर्स लिस्ट */
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .features-list li {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-list li i {
+            color: var(--accent-cyan);
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* डाउनलोड बटन */
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            background: var(--accent-gradient);
+            color: #000000;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 242, 254, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+        }
+
+        .download-btn:active {
+            transform: scale(0.96);
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: all 0.5s ease;
+        }
+
+        .download-btn:hover::before {
+            left: 200%;
+        }
+
+        /* ट्रस्ट बैज */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-sub);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+        }
+
+        .badge i {
+            color: #10b981;
+        }
+
+        .footer-text {
+            margin-top: 25px;
+            font-size: 11px;
+            color: var(--text-sub);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        
+        <!-- ऐप आइकॉन -->
+        <div class="app-icon-wrapper">
+            <i class="fas fa-rocket"></i>
+        </div>
+
+        <!-- ऐप का नाम और Verified बैज -->
+        <h1 class="app-title">
+            CHANDAN APP <i class="fas fa-check-circle" style="color: #00f2fe;"></i>
+        </h1>
+        <p class="app-subtitle">India's No.1 Earning App</p>
+
+        <!-- रेटिंग -->
+        <div class="rating-box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-text">4.8 (1M+ Downloads)</span>
+        </div>
+
+        <!-- फीचर्स -->
+        <ul class="features-list">
+            <li><i class="fas fa-bolt"></i> Super Fast & Smooth Performance</li>
+            <li><i class="fas fa-shield-alt"></i> 100% Safe and Secure</li>
+            <li><i class="fas fa-gift"></i> Daily Rewards & Bonuses</li>
+            <li><i class="fas fa-wallet"></i> Instant Withdrawal</li>
+        </ul>
+
+        <!-- ⚠️ यहाँ ध्यान दें: लिंक में सिर्फ "app.apk" लिखा है ⚠️ -->
+        <!-- अब बस अपनी APK फाइल का नाम "app.apk" रखकर इसे index.html के साथ GitHub पर अपलोड कर दें -->
+        <a href="app.apk" download class="download-btn">
+            <i class="fas fa-download"></i> Download Now
+        </a>
+
+        <!-- ट्रस्ट बैज -->
+        <div class="trust-badges">
+            <div class="badge"><i class="fas fa-check-circle"></i> 100% Safe</div>
+            <div class="badge"><i class="fas fa-virus-slash"></i> Virus Free</div>
+        </div>
+
+        <div class="footer-text">
+            © 2024 Chandan App. All Rights Reserved.
+        </div>
+
+    </div>
+
+</body>
+</html><script>console.log('Viewer ready');</script></body></html>
